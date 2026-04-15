@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Skills Hub — Organizational Licensing | Lyra-Sha AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B3A5C;
+      --navy-dark: #122843;
+      --navy-mid: #234d7a;
+      --gold:   #C9A227;
+      --gold-light: #e0b93a;
+      --cream:  #FAFBFF;
+      --sage:   #7BA05B;
+      --sage-light: #EEF4E8;
+      --text:   #1a2535;
+      --text-muted: #5a6a7e;
+      --border: #e2e8f0;
+      --white:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy-dark);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--navy-dark);
+      letter-spacing: -0.5px;
+    }
+    .nav-brand-text {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .nav-brand-text span {
+      color: var(--gold);
+    }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #1e4a72 100%);
+      padding: 100px 2rem 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(201,162,39,0.08) 0%, transparent 60%);
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(201,162,39,0.15);
+      border: 1px solid rgba(201,162,39,0.35);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 620px;
+      margin: 0 auto 48px;
+      font-weight: 400;
+      line-height: 1.7;
+      position: relative;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(201,162,39,0.35);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.06);
+    }
+    .hero-trust {
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .trust-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    /* ── SHARED LAYOUT ── */
+    .section {
+      padding: 80px 2rem;
+    }
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+    .section-header {
+      margin-bottom: 52px;
+    }
+    .section-header.centered {
+      text-align: center;
+    }
+    .section-header.centered .section-desc {
+      margin: 0 auto;
+    }
+
+    /* ── GAP (STATS) ── */
+    .gap-section {
+      background: var(--navy);
+      padding: 80px 2rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.03);
+      padding: 48px 36px;
+      text-align: center;
+      position: relative;
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat-text {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+    .stat-text strong {
+      color: var(--white);
+    }
+
+    /* ── DOMAINS ── */
+    .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .domain-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: all 0.2s;
+    }
+    .domain-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 20px rgba(27,58,92,0.1);
+      transform: translateY(-2px);
+    }
+    .domain-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--sage-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .domain-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .domain-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── NOTARY CALLOUT ── */
+    .notary-section {
+      background: var(--cream);
+      padding: 80px 2rem;
+    }
+    .notary-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 52px 56px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+      align-items: start;
+      box-shadow: 0 8px 40px rgba(201,162,39,0.1);
+    }
+    .notary-seal {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--gold) 0%, #a88020 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(201,162,39,0.3);
+    }
+    .notary-badge {
+      display: inline-block;
+      background: rgba(201,162,39,0.12);
+      border: 1px solid rgba(201,162,39,0.4);
+      color: #8a6c10;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .notary-card h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .notary-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .notary-card p:last-child { margin-bottom: 0; }
+    .notary-highlight {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ── WHO USES ── */
+    .who-section {
+      background: var(--sage-light);
+      padding: 80px 2rem;
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .who-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 36px 32px;
+      border: 1px solid rgba(123,160,91,0.2);
+    }
+    .who-icon {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+    .who-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .who-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .who-card ul li {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .who-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      background: var(--sage);
+      border-radius: 50%;
+    }
+
+    /* ── GRANT ELIGIBLE ── */
+    .grant-section {
+      background: var(--white);
+      padding: 80px 2rem;
+    }
+    .grant-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .grant-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 28px;
+    }
+    .grant-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .grant-list li:last-child { border-bottom: none; }
+    .grant-check {
+      width: 22px;
+      height: 22px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .grant-check svg {
+      width: 12px;
+      height: 12px;
+      stroke: white;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .grant-list li strong {
+      display: block;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+    .grant-list li span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .grant-cta-box {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 44px 40px;
+      color: var(--white);
+    }
+    .grant-cta-box h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .grant-cta-box p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .primary-tag {
+      display: inline-block;
+      background: rgba(201,162,39,0.15);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      background: var(--cream);
+      padding: 80px 2rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px 28px;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .pricing-card:hover {
+      box-shadow: 0 6px 28px rgba(27,58,92,0.1);
+      transform: translateY(-2px);
+    }
+    .pricing-card.featured {
+      border-color: var(--navy);
+      border-width: 2px;
+    }
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .pricing-tier-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+    .pricing-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .pricing-size {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .pricing-amount {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-amount sup {
+      font-size: 1.2rem;
+      font-weight: 700;
+      vertical-align: top;
+      margin-top: 6px;
+      display: inline-block;
+    }
+    .pricing-period {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .pricing-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+    .pricing-includes {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+    .pricing-feature-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--sage);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .pricing-custom {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border: none;
+      color: var(--white);
+    }
+    .pricing-custom .pricing-tier-label { color: var(--gold); }
+    .pricing-custom h3 { color: var(--white); }
+    .pricing-custom .pricing-size { color: rgba(255,255,255,0.55); }
+    .pricing-custom .pricing-amount { color: var(--gold); font-size: 1.6rem; line-height: 1.2; }
+    .pricing-custom .pricing-period { color: rgba(255,255,255,0.55); }
+    .pricing-custom .pricing-divider { background: rgba(255,255,255,0.12); }
+    .pricing-custom .pricing-includes { color: rgba(255,255,255,0.5); }
+    .pricing-custom .pricing-feature { color: rgba(255,255,255,0.7); }
+    .pricing-note {
+      background: var(--sage-light);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      color: #4a6635;
+      border-left: 3px solid var(--sage);
+    }
+    .pricing-note strong { color: #3a5228; }
+
+    /* ── FEATURES ── */
+    .features-section {
+      background: var(--navy);
+      padding: 80px 2rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 24px 22px;
+    }
+    .feature-icon-wrap {
+      width: 40px;
+      height: 40px;
+      background: rgba(201,162,39,0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .feature-item h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+    .feature-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* ── CONTACT FORM ── */
+    .contact-section {
+      background: var(--white);
+      padding: 80px 2rem;
+    }
+    .contact-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-left h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .contact-left p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .contact-detail-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--sage-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .contact-detail span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .contact-detail a {
+      color: var(--navy);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .contact-detail a:hover { color: var(--gold); }
+    .form-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 44px 40px;
+      border: 1px solid var(--border);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--navy);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6a7e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover {
+      background: var(--navy-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(27,58,92,0.25);
+    }
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark);
+      padding: 44px 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-sep {
+      color: rgba(255,255,255,0.2);
+      font-size: 13px;
+    }
+    .footer-copy {
+      color: rgba(255,255,255,0.3);
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .notary-card {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+      }
+      .notary-seal { margin: 0 auto; }
+      .grant-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .form-card {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://lyrashaai.com" class="nav-brand">
+    <div class="nav-logo-mark">LS</div>
+    <span class="nav-brand-text">Life Skills Hub &nbsp;<span>· Lyra-Sha AI</span></span>
+  </a>
+  <a href="#contact" class="nav-cta">Request a License</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Organizational Licensing Available</div>
+  <h1>Life Skills Hub — <span>Licensed for Organizations</span> Serving Transitional Youth</h1>
+  <p class="hero-sub">Give every young person the practical knowledge they need to thrive independently — at a price that works for your program.</p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Request a License</a>
+    <a href="#pricing" class="btn-secondary">View Program Pricing</a>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-item"><div class="trust-dot"></div> Grant-eligible tool</div>
+    <div class="trust-item"><div class="trust-dot"></div> No jargon · No judgment</div>
+    <div class="trust-item"><div class="trust-dot"></div> Licensed notary public on-platform</div>
+    <div class="trust-item"><div class="trust-dot"></div> Secure document vault</div>
+  </div>
+</section>
+
+<!-- THE GAP (STATS) -->
+<section class="gap-section">
+  <div class="section-inner">
+    <div class="section-header centered" style="margin-bottom: 44px;">
+      <div class="section-label" style="color: var(--gold-light);">The Problem</div>
+      <h2 class="section-title" style="color: var(--white);">Young adults are being left without a roadmap</h2>
+      <p class="section-desc" style="color: rgba(255,255,255,0.6); margin: 0 auto;">The life skills required for independent adulthood are rarely taught — anywhere.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">20,000+</div>
+        <p class="stat-text"><strong>youth age out of foster care annually</strong> with no independent living preparation in place</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2x</div>
+        <p class="stat-text"><strong>first-gen college students are twice as likely to drop out</strong> due to unaddressed life management challenges</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <p class="stat-text">courses in a typical K-12 curriculum dedicated to <strong>the practical skills adult independence actually requires</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S COVERED -->
+<section class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Platform Content</div>
+      <h2 class="section-title">Seven domains. Every skill that matters.</h2>
+      <p class="section-desc">Written for young adults who've never had this modeled for them. No jargon, no judgment. Progress saved privately — no separate login required.</p>
+    </div>
+    <div class="domains-grid">
+      <div class="domain-card">
+        <div class="domain-icon">💰</div>
+        <h3>Budgeting</h3>
+        <p>Income, expenses, savings habits, and understanding credit — from the ground up.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">💼</div>
+        <h3>Job &amp; Resume</h3>
+        <p>Resume building, job searching, interview prep, and navigating the first job.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🏠</div>
+        <h3>Housing</h3>
+        <p>Renting an apartment, reading a lease, understanding tenant rights, and moving in.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🥗</div>
+        <h3>Cooking &amp; Nutrition</h3>
+        <p>Practical meal planning, grocery budgeting, and basic nutrition without the overwhelm.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">🏥</div>
+        <h3>Healthcare Navigation</h3>
+        <p>Understanding insurance, finding a doctor, prescription coverage, and mental health access.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">📄</div>
+        <h3>Legal &amp; Financial Documents</h3>
+        <p>Reading contracts, managing important paperwork, and knowing when to seek legal help.</p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon">📅</div>
+        <h3>Daily Routine Building</h3>
+        <p>Building structure, time management, and personal accountability systems that stick.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTARY ADVANTAGE -->
+<section class="notary-section" id="notary">
+  <div class="section-inner">
+    <div class="section-header centered">
+      <div class="section-label">Exclusive Advantage</div>
+      <h2 class="section-title">Something no other platform offers</h2>
+    </div>
+    <div class="notary-card">
+      <div class="notary-seal">&#9878;</div>
+      <div>
+        <div class="notary-badge">Licensed Notary Public</div>
+        <h2>Online Notarization — Built Into the Platform</h2>
+        <p>Life Skills Hub was created by a licensed notary public. For the youth your program serves — especially those aging out of foster care — document access and legal legitimacy are not small barriers. They are the barrier.</p>
+        <p><span class="notary-highlight">We provide online notarization services directly through the platform.</span> Lease agreements, affidavits, consent forms, employment documents — youth can get documents notarized without navigating a system that was never designed for them.</p>
+        <p>This is a concrete, measurable benefit your organization can offer. No other youth life skills platform provides this.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO USES -->
+<section class="who-section" id="who">
+  <div class="section-inner">
+    <div class="section-header centered">
+      <div class="section-label">Who This Is Built For</div>
+      <h2 class="section-title">Programs already doing this work</h2>
+      <p class="section-desc">Life Skills Hub was designed to extend what your team does — not replace it.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon">🏛️</div>
+        <h3>Foster Care Programs</h3>
+        <ul>
+          <li>Independent Living Program Coordinators</li>
+          <li>Foster Care Coordinators at colleges</li>
+          <li>State Department of Family Services</li>
+          <li>Transitional living placement coordinators</li>
+          <li>Group home and residential program staff</li>
+        </ul>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🎓</div>
+        <h3>Colleges &amp; Universities</h3>
+        <ul>
+          <li>TRIO Program Directors</li>
+          <li>Directors of Student Success</li>
+          <li>First-gen student support offices</li>
+          <li>Community college transition programs</li>
+          <li>On-campus basic needs coordinators</li>
+        </ul>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🤝</div>
+        <h3>Workforce &amp; Non-Profits</h3>
+        <ul>
+          <li>Non-profit directors serving transitional youth</li>
+          <li>Workforce development program directors</li>
+          <li>YouthBuild and AmeriCorps programs</li>
+          <li>Reentry and court-involved youth programs</li>
+          <li>Housing-first and shelter support programs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRANT ELIGIBLE -->
+<section class="grant-section" id="grants">
+  <div class="section-inner">
+    <div class="grant-inner">
+      <div>
+        <div class="section-label">Grant Eligibility</div>
+        <h2 class="section-title">Your program likely already has a funding path</h2>
+        <p class="section-desc" style="margin-bottom: 0;">Life Skills Hub qualifies for funding through multiple federal and local grant programs. If your organization is already receiving these funds, licensing this platform may be covered.</p>
+        <ul class="grant-list">
+          <li>
+            <div class="grant-check">
+              <svg viewBox="0 0 14 10"><polyline points="1,5 5,9 13,1"/></svg>
+            </div>
+            <div>
+              <strong>John H. Chafee Foster Care Program <span class="primary-tag">Primary</span></strong>
+              <span>The federal grant specifically for aging-out foster care independent living</span>
+            </div>
+          </li>
+          <li>
+            <div class="grant-check">
+              <svg viewBox="0 0 14 10"><polyline points="1,5 5,9 13,1"/></svg>
+            </div>
+            <div>
+              <strong>Title IV-E Independent Living Funds</strong>
+              <span>Federal funds supporting transition services for foster youth</span>
+            </div>
+          </li>
+          <li>
+            <div class="grant-check">
+              <svg viewBox="0 0 14 10"><polyline points="1,5 5,9 13,1"/></svg>
+            </div>
+            <div>
+              <strong>TRIO Grants (Federal)</strong>
+              <span>For programs serving first-generation and low-income college students</span>
+            </div>
+          </li>
+          <li>
+            <div class="grant-check">
+              <svg viewBox="0 0 14 10"><polyline points="1,5 5,9 13,1"/></svg>
+            </div>
+            <div>
+              <strong>Community Development Block Grants</strong>
+              <span>HUD-administered funding supporting community service programs</span>
+            </div>
+          </li>
+          <li>
+            <div class="grant-check">
+              <svg viewBox="0 0 14 10"><polyline points="1,5 5,9 13,1"/></svg>
+            </div>
+            <div>
+              <strong>Local Workforce Development Funds</strong>
+              <span>State and local workforce investment act allocations</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="grant-cta-box">
+        <h3>We can help you make the case</h3>
+        <p>Not sure if your program qualifies, or need documentation language for a grant application? We provide grant support language tailored to Life Skills Hub's scope and outcomes.</p>
+        <p>Built by a Magellan Health professional who understands how these systems work — and how to document outcomes that funders care about.</p>
+        <a href="#contact" class="btn-gold">Get Grant Support Language</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-header centered">
+      <div class="section-label">Organizational Pricing</div>
+      <h2 class="section-title">Straightforward pricing for every program size</h2>
+      <p class="section-desc">Annual licenses cover your full cohort. Individual youth retain private access and progress — your license gets them in.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-tier-label">Starter</div>
+        <h3>Starter Package</h3>
+        <p class="pricing-size">Small non-profits &amp; programs · &lt;25 youth/year</p>
+        <div class="pricing-amount"><sup>$</sup>499</div>
+        <p class="pricing-period">per year</p>
+        <div class="pricing-divider"></div>
+        <p class="pricing-includes">Includes</p>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Up to 25 youth annually</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Full platform access — all 7 domains</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Document vault for each youth</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Notary access</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Grant documentation support</div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="pricing-tier-label">Growth</div>
+        <h3>Growth Package</h3>
+        <p class="pricing-size">Mid-size colleges &amp; organizations · 25–100 youth/year</p>
+        <div class="pricing-amount"><sup>$</sup>999</div>
+        <p class="pricing-period">per year</p>
+        <div class="pricing-divider"></div>
+        <p class="pricing-includes">Includes</p>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Up to 100 youth annually</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Full platform access — all 7 domains</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Document vault for each youth</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Notary access</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Grant documentation support</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Priority onboarding support</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier-label">Institutional</div>
+        <h3>Institutional License</h3>
+        <p class="pricing-size">Large organizations · 100+ youth/year</p>
+        <div class="pricing-amount"><sup>$</sup>1,999</div>
+        <p class="pricing-period">per year</p>
+        <div class="pricing-divider"></div>
+        <p class="pricing-includes">Includes</p>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Unlimited youth annually</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Full platform access — all 7 domains</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Document vault for each youth</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Notary access</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Grant documentation support</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Dedicated onboarding &amp; check-ins</div>
+      </div>
+
+      <div class="pricing-card pricing-custom">
+        <div class="pricing-tier-label">State / Federal</div>
+        <h3>State &amp; Federal Programs</h3>
+        <p class="pricing-size">Multi-site or government contracts</p>
+        <div class="pricing-amount">Custom Quote</div>
+        <p class="pricing-period">tailored to your program scope</p>
+        <div class="pricing-divider"></div>
+        <p class="pricing-includes">Includes</p>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Multi-site deployment</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Custom reporting &amp; outcomes support</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Grant application documentation</div>
+        <div class="pricing-feature"><span class="pricing-feature-dot"></span>Direct partnership support</div>
+      </div>
+
+    </div>
+    <div class="pricing-note">
+      <strong>Individual Access:</strong> Youth who self-enroll outside of an organizational license retain access at <strong>$4.99/month</strong>. Spring graduation pricing is also available for parents purchasing for graduating seniors at $4.99/month. Organizational licensing does not affect this option.
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOUR YOUTH GET -->
+<section class="features-section" id="features">
+  <div class="section-inner">
+    <div class="section-header centered" style="margin-bottom: 52px;">
+      <div class="section-label" style="color: var(--gold-light);">Platform Features</div>
+      <h2 class="section-title" style="color: var(--white);">What every youth in your program receives</h2>
+      <p class="section-desc" style="color: rgba(255,255,255,0.6); margin: 0 auto;">Built for young adults ages 16–25 transitioning to independence. Practical, private, and built with respect.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon-wrap">🗄️</div>
+        <div>
+          <h4>Secure Document Vault</h4>
+          <p>Youth store important documents safely in one private place — birth certificates, IDs, insurance cards, lease agreements.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-wrap">📆</div>
+        <div>
+          <h4>Scheduler with Countdown</h4>
+          <p>Built-in scheduler tracks school, work, and personal milestones. Countdown timers keep youth accountable to what's next.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-wrap">📚</div>
+        <div>
+          <h4>7 Life Skill Domains</h4>
+          <p>Comprehensive, jargon-free coverage of every practical skill independence requires — all in one place.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-wrap">✍️</div>
+        <div>
+          <h4>No-Jargon Content</h4>
+          <p>Written for people who've never had any of this modeled for them. Clear, warm, and actionable.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-wrap">🔒</div>
+        <div>
+          <h4>Private Progress Tracking</h4>
+          <p>Progress is saved privately. Youth own their learning — no external reporting on their activity.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-wrap">📋</div>
+        <div>
+          <h4>Online Notarization Access</h4>
+          <p>The platform creator is a licensed notary public. Youth can access online notarization for the documents that change their trajectory.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-wrap">🚀</div>
+        <div>
+          <h4>No Separate Login</h4>
+          <p>Frictionless access. No extra account to create. Youth engage with the platform where they already are.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-wrap">🌐</div>
+        <div>
+          <h4>Live on lyrashaai.com</h4>
+          <p>Life Skills Hub is live and ready at lyrashaai.com/life-skills. No lengthy implementation timeline required.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label">Get Started</div>
+        <h2>Request an Organizational License</h2>
+        <p>Tell us about your program and we'll follow up within one business day. We're happy to schedule a demo, provide grant language, or walk you through the right pricing tier for your cohort size.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🌐</div>
+          <span><a href="https://lyrashaai.com/life-skills" target="_blank">lyrashaai.com/life-skills</a></span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <span><a href="mailto:hello@lyrashaai.com">hello@lyrashaai.com</a></span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <span><a href="tel:+17198821456">+1 (719) 882-1456</a></span>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <form action="mailto:hello@lyrashaai.com" method="POST" enctype="text/plain">
+          <div class="form-group">
+            <label for="org">Organization Name</label>
+            <input type="text" id="org" name="Organization" placeholder="Your organization or program name" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" name="Name" placeholder="First and last name" required />
+            </div>
+            <div class="form-group">
+              <label for="title">Your Title</label>
+              <input type="text" id="title" name="Title" placeholder="Director, Coordinator, etc." />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="Email" placeholder="you@organization.org" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="Phone" placeholder="(555) 000-0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="youth">Approximate # of Youth Served Annually</label>
+            <input type="text" id="youth" name="Youth Served" placeholder="e.g. 40, 75–100, 200+" />
+          </div>
+          <div class="form-group">
+            <label for="funding">Primary Funding Source</label>
+            <select id="funding" name="Funding Source">
+              <option value="" disabled selected>Select your primary funding source</option>
+              <option>Chafee Act / Chafee Foster Care Program</option>
+              <option>TRIO Grant (Federal)</option>
+              <option>Title IV-E Independent Living</option>
+              <option>Other federal or state grant</option>
+              <option>Operating / general budget</option>
+              <option>Exploring options — not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Anything else you'd like us to know?</label>
+            <textarea id="message" name="Message" placeholder="Tell us about your program, your questions, or what would make this a great fit..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit License Request</button>
+          <p class="form-note">We respond within one business day. No spam, no sales pressure.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Life Skills Hub &nbsp;<span>· A Lyra-Sha AI Product</span></div>
+  <div class="footer-links">
+    <a href="https://lyrashaai.com/life-skills" target="_blank">lyrashaai.com/life-skills</a>
+    <span class="footer-sep">·</span>
+    <a href="mailto:hello@lyrashaai.com">hello@lyrashaai.com</a>
+    <span class="footer-sep">·</span>
+    <a href="tel:+17198821456">+1 (719) 882-1456</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Lyra-Sha AI · Life Skills Hub · All rights reserved</p>
+</footer>
+
+</body>
+</html>
